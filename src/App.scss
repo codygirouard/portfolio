@@ -40,3 +40,8 @@ body {
   height: 45px;
   width: 45px;
 }
+
+nav {
+  display: flex;
+  flex-direction: column;
+}

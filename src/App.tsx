@@ -39,12 +39,12 @@ const Logo = () => {
 const Header = () => {
   return (
     <header>
+      <div className="logo">
+        <a href="/">
+          <Logo />
+        </a>
+      </div>
       <nav>
-        <div className="logo">
-          <a href="/">
-            <Logo />
-          </a>
-        </div>
         <div className="menu">
           <ul>
             <li>
