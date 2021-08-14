@@ -1,0 +1,42 @@
+// variables
+
+$yellow: #fcff76;
+$green: #0a2f2e;
+
+// defaults
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $green;
+}
+
+// logo
+
+#logo {
+  color: $yellow;
+
+  polygon {
+    fill: none;
+    stroke: currentColor;
+  }
+
+  text {
+    fill: currentColor;
+    stroke: none;
+  }
+}
+
+// nav bar
+
+.logo {
+  height: 45px;
+  width: 45px;
+}
