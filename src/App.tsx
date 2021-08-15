@@ -14,21 +14,19 @@ const Logo = () => {
       <g>
         <text
           transform="matrix(1 0 0 1 0 0)"
-          font-size="50"
-          font-family="sans-serif"
-          font-style="normal"
-          font-weight="normal"
+          fontSize="50"
+          fontFamily="sans-serif"
+          fontStyle="normal"
+          fontWeight="normal"
           id="logo-text"
-          y="65"
-          x="24"
+          y="66"
+          x="23"
         >
           C
         </text>
         <polygon
           id="logo-shape"
-          stroke-width="5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="4"
           points="42,3 3,25 3,70 42,93 81,71 81,26 "
         ></polygon>
       </g>
@@ -39,27 +37,37 @@ const Logo = () => {
 const Header = () => {
   return (
     <header>
-      <div className="logo">
-        <a href="/">
-          <Logo />
-        </a>
-      </div>
-      <nav>
-        <div className="menu">
-          <ul>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#projects">Projects</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
+      <nav className="main-nav">
+        <div className="logo">
+          <a href="/">
+            <Logo />
+          </a>
         </div>
-        <div className="resume">
-          <a href="#!">Resume</a>
+        <div>
+          <label htmlFor="ham-button" className="hamburger">
+            <input type="checkbox" id="ham-button" />
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <aside>
+            <nav className="mobile-nav">
+              <ul>
+                <li>
+                  <a href="#about">About</a>
+                </li>
+                <li>
+                  <a href="#projects">Projects</a>
+                </li>
+                <li>
+                  <a href="#contact">Contact</a>
+                </li>
+              </ul>
+              <div className="resume-button">
+                <a href="#!">Resume</a>
+              </div>
+            </nav>
+          </aside>
         </div>
       </nav>
     </header>
