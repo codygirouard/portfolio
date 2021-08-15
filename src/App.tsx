@@ -1,5 +1,6 @@
 import './App.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useReducer } from 'react';
 
 const Logo = () => {
   return (
@@ -35,6 +36,11 @@ const Logo = () => {
 };
 
 const Header = () => {
+  const [visible, toggleVisible] = useReducer((visible) => !visible, false);
+  const handleToggle = () => {
+    toggleVisible();
+  }
+
   return (
     <header>
       <nav className="main-nav">
@@ -43,15 +49,15 @@ const Header = () => {
             <Logo />
           </a>
         </div>
-        <div>
+        <div className="mobile-nav">
           <label htmlFor="ham-button" className="hamburger">
-            <input type="checkbox" id="ham-button" />
+            <input type="checkbox" id="ham-button" onClick={handleToggle} />
             <span></span>
             <span></span>
             <span></span>
           </label>
-          <aside>
-            <nav className="mobile-nav">
+          <aside className={visible ? '' : 'hidden'}>
+            <nav>
               <ul>
                 <li>
                   <a href="#about">About</a>

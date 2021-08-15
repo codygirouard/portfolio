@@ -2,6 +2,7 @@
 
 $yellow: #fcff76;
 $green: #0a2f2e;
+$light-green: #124e4c;
 $white: rgb(230, 230, 230);
 
 // defaults
@@ -123,12 +124,17 @@ header {
   }
 }
 
-.mobile-nav {
+.hidden {
+  display: none;
+}
+
+.mobile-nav aside nav {
   display: flex;
   height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: $light-green;
 
   ul {
     margin: 0;
@@ -136,11 +142,21 @@ header {
 
     li {
       list-style-type: none;
+      margin: 1em 0;
 
       a {
         text-decoration: none;
         color: $white;
       }
+    }
+  }
+
+  .resume-button {
+    margin-top: 20%;
+
+    a {
+      text-decoration: none;
+      color: $white;
     }
   }
 }
