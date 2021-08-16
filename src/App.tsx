@@ -1,6 +1,6 @@
-import './App.scss';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useState } from 'react';
+import "./App.scss";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState } from "react";
 
 const Logo = () => {
   return (
@@ -35,12 +35,66 @@ const Logo = () => {
   );
 };
 
-const Header = () => {
+const MobileNav = () => {
   const [visible, setVisible] = useState(false);
-  const handleToggle = () => {
+  const handleToggle = async () => {
+    const body = document.getElementById("body");
+    body?.classList.toggle("blur");
     setVisible(!visible);
   };
 
+  return (
+    <div className="mobile-nav">
+      <label htmlFor="ham-button" className="hamburger">
+        <input type="checkbox" id="ham-button" onClick={handleToggle} />
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <aside className={visible ? undefined : "hidden"}>
+        <nav>
+          <ul>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#projects">Projects</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+          <div className="resume-button">
+            <a href="/resume.pdf">Resume</a>
+          </div>
+        </nav>
+      </aside>
+    </div>
+  );
+};
+
+const Nav = () => {
+  return (
+    <div className="links">
+      <ul>
+        <li>
+          <a href="#about">About</a>
+        </li>
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+      <div className="resume-button">
+        <a href="/resume.pdf">Resume</a>
+      </div>
+    </div>
+  );
+};
+
+const Header = () => {
   return (
     <header>
       <nav className="main-nav">
@@ -49,39 +103,28 @@ const Header = () => {
             <Logo />
           </a>
         </div>
-        <div className="mobile-nav">
-          <label htmlFor="ham-button" className="hamburger">
-            <input type="checkbox" id="ham-button" onClick={handleToggle} />
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
-          <aside className={visible ? undefined : 'hidden'}>
-            <nav>
-              <ul>
-                <li>
-                  <a href="#about">About</a>
-                </li>
-                <li>
-                  <a href="#projects">Projects</a>
-                </li>
-                <li>
-                  <a href="#contact">Contact</a>
-                </li>
-              </ul>
-              <div className="resume-button">
-                <a href="#!">Resume</a>
-              </div>
-            </nav>
-          </aside>
-        </div>
+        <MobileNav />
+        <Nav />
       </nav>
     </header>
   );
 };
 
+const Body = () => {
+  return (
+    <div id="body">
+      <h2>Content</h2>
+    </div>
+  );
+};
+
 const Home = () => {
-  return <Header />;
+  return (
+    <>
+      <Header />
+      <Body />
+    </>
+  );
 };
 
 const NotFound = () => {
