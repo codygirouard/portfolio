@@ -1,6 +1,6 @@
 import './App.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useReducer } from 'react';
+import { useState } from 'react';
 
 const Logo = () => {
   return (
@@ -36,10 +36,10 @@ const Logo = () => {
 };
 
 const Header = () => {
-  const [visible, toggleVisible] = useReducer((visible) => !visible, false);
+  const [visible, setVisible] = useState(false);
   const handleToggle = () => {
-    toggleVisible();
-  }
+    setVisible(!visible);
+  };
 
   return (
     <header>
@@ -56,7 +56,7 @@ const Header = () => {
             <span></span>
             <span></span>
           </label>
-          <aside className={visible ? '' : 'hidden'}>
+          <aside className={visible ? undefined : 'hidden'}>
             <nav>
               <ul>
                 <li>

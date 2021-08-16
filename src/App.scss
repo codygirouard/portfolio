@@ -114,18 +114,20 @@ header {
   align-items: center;
 
   aside {
-    visibility: visible;
     position: fixed;
     top: 0px;
     bottom: 0px;
     right: 0px;
     width: calc(min(70vw, 400px));
     z-index: 1;
-  }
-}
+    transform: translateX(0vw);
+    transition: transform 300ms ease-in-out, visibility 300ms ease-in-out;
 
-.hidden {
-  display: none;
+    &.hidden {
+      visibility: hidden;
+      transform: translateX(100vw);
+    }
+  }
 }
 
 .mobile-nav aside nav {
