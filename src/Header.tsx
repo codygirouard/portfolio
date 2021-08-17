@@ -1,11 +1,21 @@
-import { useState } from 'react';
-import Logo from './Logo';
+import { useState } from "react";
+import Logo from "./Logo";
 
 const MobileNav = () => {
   const [visible, setVisible] = useState(false);
   const handleToggle = async () => {
-    const body = document.getElementById('body');
-    body?.classList.toggle('blur');
+    const content = document.getElementById("content");
+    const body = document.body;
+
+    if (visible) {
+      // closing the mobile nav menu
+      body.style.overflow = "auto";
+    } else {
+      // opening the mobile nav menu
+      body.style.overflow = "hidden";
+    }
+
+    content?.classList.toggle("blur");
     setVisible(!visible);
   };
 
@@ -17,7 +27,7 @@ const MobileNav = () => {
         <span></span>
         <span></span>
       </label>
-      <aside className={visible ? undefined : 'hidden'}>
+      <aside className={visible ? undefined : "hidden"}>
         <nav>
           <ul>
             <li>

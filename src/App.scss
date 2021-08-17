@@ -53,7 +53,7 @@ body {
 
 header {
   display: flex;
-  padding: 1.25em;
+  padding: 1.25em 1.25em;
   height: 100px;
   justify-content: space-between;
   align-items: center;
@@ -70,8 +70,9 @@ header {
 
   span {
     background: $yellow;
-    height: 2px;
+    height: 3px;
     margin: 7px 0;
+    border-radius: 5px;
     transition: 300ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
     &:nth-of-type(1) {
@@ -93,7 +94,7 @@ header {
 
   &:checked ~ span:nth-of-type(1) {
     transform-origin: top;
-    transform: translate(1.5px, 16px) rotatez(-45deg);
+    transform: translate(1px, 16px) rotatez(-45deg);
   }
 
   &:checked ~ span:nth-of-type(2) {
@@ -204,6 +205,12 @@ header {
   }
 }
 
+@media only screen and (min-width: 769px) {
+  #content {
+    padding: 0 7em;
+  }
+}
+
 // side media links
 
 .media-links ul {
@@ -214,7 +221,7 @@ header {
   left: 1em;
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     background-color: $white;
     height: 100px;
