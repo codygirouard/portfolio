@@ -155,16 +155,31 @@ header {
 
   .resume-button {
     margin-top: 20%;
-
-    a {
-      text-decoration: none;
-      color: $white;
-    }
   }
 }
 
 .links {
   display: none;
+  align-items: center;
+
+  ul li {
+    display: inline-block;
+    margin-right: 2em;
+
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  .resume-button {
+    margin-left: 0.75em;
+  }
+}
+
+.resume-button a {
+  text-decoration: none;
+  color: $white;
 }
 
 @media only screen and (min-width: 769px) {
@@ -177,10 +192,82 @@ header {
   }
 }
 
-// body
+// content
 
-#body {
+#content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5em;
+
   &.blur {
     filter: blur(5px);
+  }
+}
+
+// side media links
+
+.media-links ul {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0px;
+  left: 1em;
+
+  &::after {
+    content: '';
+    display: block;
+    background-color: $white;
+    height: 100px;
+    width: 2px;
+    margin: 10px auto 0 auto;
+  }
+}
+
+.media {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: 15px;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: $white;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .media-links ul {
+    display: flex;
+  }
+}
+
+// footer
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    display: block;
+  }
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (min-width: 769px) {
+  .footer-links ul {
+    display: none;
   }
 }
