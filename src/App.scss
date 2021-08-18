@@ -1,12 +1,12 @@
 // import fonts
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap'); // font-family: 'Rubik', sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap'); // font-family: 'Fira Mono', monospace;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"); // font-family: 'Rubik', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap"); // font-family: 'Fira Mono', monospace;
 
 // variables
 
-$font-sans: 'Rubik', sans-serif;
-$font-mono: 'Fira Mono', monospace;
+$font-sans: "Rubik", sans-serif;
+$font-mono: "Fira Mono", monospace;
 
 $black: #151515;
 $light-black: #1f1f1f;
@@ -73,11 +73,17 @@ body {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  padding: 1.25em 1.25em;
-  height: 100px;
+  padding: 0 1.5em;
+  height: 6.25em;
   justify-content: space-between;
   align-items: center;
+  background-color: $grey;
+  z-index: 20;
 }
 
 .hamburger {
@@ -138,9 +144,9 @@ header {
 
   aside {
     position: fixed;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
+    top: 0;
+    bottom: 0;
+    right: 0;
     width: calc(min(70vw, 400px));
     z-index: 1;
     transform: translateX(0vw);
@@ -241,7 +247,7 @@ header {
   color: $red;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: -3px;
@@ -269,7 +275,7 @@ header {
   border-radius: 5px;
 
   &::after {
-    content: '';
+    content: "";
     background-color: $button-fill;
     position: absolute;
     bottom: 0;
@@ -289,10 +295,11 @@ header {
 }
 
 .intro {
-  min-height: 100vh;
+  min-height: calc(100vh - 6.25em);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 6.25em;
   padding-bottom: 10vh;
 
   h1 {
@@ -305,16 +312,16 @@ header {
   }
 
   h2 {
-    margin: 0px;
+    margin: 0;
     margin-left: -4px;
     font-size: clamp(2.5rem, 8vw, 4rem);
   }
 
   h3 {
-    margin: 10px 0 30px 0;
+    margin: 0.6em 0 1.9em 0;
     color: $grey;
     line-height: 0.9;
-    font-size: clamp(40px, 7vw, 60px);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
   }
 
   p {
@@ -334,11 +341,11 @@ header {
   display: none;
   flex-direction: column;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   left: 1em;
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     background-color: $white;
     height: 100px;
@@ -353,7 +360,7 @@ header {
   list-style: none;
 
   li {
-    padding: 15px;
+    padding: 0.9em;
   }
 
   svg {
