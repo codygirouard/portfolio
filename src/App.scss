@@ -1,9 +1,26 @@
+// import fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap'); // font-family: 'Rubik', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap'); // font-family: 'Fira Mono', monospace;
+
 // variables
 
-$yellow: #fcff76;
-$green: #0a2f2e;
-$light-green: #124e4c;
-$white: rgb(230, 230, 230);
+$font-sans: 'Rubik', sans-serif;
+$font-mono: 'Fira Mono', monospace;
+
+$black: #151515;
+$light-black: #1f1f1f;
+$grey: #b9b9b9;
+$white: #f5f5f5;
+
+$dark-red: #b80000;
+$red: #ff2727;
+$light-red: #ff7070;
+
+$button-fill: rgba($red, 0.1);
+
+$navy-shadow: rgba(2, 12, 27, 0.7);
+$green-tint: rgba(100, 255, 218, 0.1);
 
 // defaults
 
@@ -17,13 +34,17 @@ html {
 }
 
 body {
-  background-color: $green;
+  background-color: $black;
+  color: $white;
+  line-height: 1.5;
+  font-family: $font-sans;
+  font-weight: 400;
 }
 
 // logo
 
 #logo {
-  color: $yellow;
+  color: $red;
   height: 42px;
   width: 42px;
 
@@ -69,7 +90,7 @@ header {
   z-index: 15;
 
   span {
-    background: $yellow;
+    background: $red;
     height: 3px;
     margin: 7px 0;
     border-radius: 5px;
@@ -94,17 +115,18 @@ header {
 
   &:checked ~ span:nth-of-type(1) {
     transform-origin: top;
-    transform: translate(1px, 16px) rotatez(-45deg);
+    transform: translate(0px, 18px) rotatez(-45deg);
   }
 
   &:checked ~ span:nth-of-type(2) {
     transform-origin: bottom;
-    transform: translate(-9.6px, -5px) rotatez(45deg);
+    width: 100%;
+    transform: rotatez(45deg);
   }
 
   &:checked ~ span:nth-of-type(3) {
     transform-origin: bottom;
-    transform: rotatez(45deg) translate(-7px, -4px);
+    width: 0%;
   }
 }
 
@@ -137,7 +159,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: $light-green;
+  background-color: $light-black;
 
   ul {
     margin: 0;
@@ -196,9 +218,10 @@ header {
 // content
 
 #content {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5em;
+  padding: 0 2em;
+  transition: filter 300ms ease-in-out;
 
   &.blur {
     filter: blur(5px);
@@ -207,7 +230,101 @@ header {
 
 @media only screen and (min-width: 769px) {
   #content {
-    padding: 0 7em;
+    padding-left: 7em;
+    padding-right: 4em;
+  }
+}
+
+.link {
+  position: relative;
+  text-decoration: none;
+  color: $red;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px;
+    width: 100%;
+    background-color: $red;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 300ms ease-in;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: $red;
+  padding: 1em;
+  border: 1px solid $red;
+  border-radius: 5px;
+
+  &::after {
+    content: '';
+    background-color: $button-fill;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform: scale(0, 0);
+    transform-origin: top right;
+    transition: transform 200ms ease-in;
+  }
+
+  &:hover::after {
+    transform: scale(1, 1);
+    transform-origin: bottom left;
+  }
+}
+
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 10vh;
+
+  h1 {
+    color: $red;
+    margin: 0;
+    margin-bottom: 0.25em;
+    font-family: $font-mono;
+    font-size: clamp(1rem, 5vw, 1.25rem);
+    font-weight: 400;
+  }
+
+  h2 {
+    margin: 0px;
+    margin-left: -4px;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+
+  h3 {
+    margin: 10px 0 30px 0;
+    color: $grey;
+    line-height: 0.9;
+    font-size: clamp(40px, 7vw, 60px);
+  }
+
+  p {
+    margin: 0;
+    max-width: 540px;
+    color: $grey;
+  }
+
+  .button {
+    margin-top: 2em;
   }
 }
 
@@ -221,7 +338,7 @@ header {
   left: 1em;
 
   &::after {
-    content: "";
+    content: '';
     display: block;
     background-color: $white;
     height: 100px;

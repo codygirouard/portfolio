@@ -1,6 +1,6 @@
 import Header from './Header';
 import Content from './Content';
-import MediaLinks from './MediaLinks';
+import { MediaLinks } from './MediaLinks';
 import Footer from './Footer';
 
 const Home = () => {
