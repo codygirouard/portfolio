@@ -3,10 +3,10 @@ import Logo from './Logo';
 
 const MobileNav = () => {
   const [visible, setVisible] = useState(false);
-  const handleToggle = async () => {
+
+  const handleToggle = () => {
     const content = document.getElementById('content');
     const body = document.body;
-
     if (visible) {
       // closing the mobile nav menu
       body.style.overflow = 'auto';
@@ -19,10 +19,30 @@ const MobileNav = () => {
     setVisible(!visible);
   };
 
+  useEffect(() => {
+    const content = document.getElementById('content');
+
+    const exitMobileNav = (event: MouseEvent) => {
+      setVisible(false);
+      content?.classList.remove('blur');
+    };
+
+    content?.addEventListener('click', exitMobileNav);
+
+    return () => {
+      content?.removeEventListener('click', exitMobileNav);
+    };
+  }, []);
+
   return (
     <div className="mobile-nav">
       <label htmlFor="ham-button" className="hamburger">
-        <input type="checkbox" id="ham-button" onClick={handleToggle} />
+        <input
+          type="checkbox"
+          id="ham-button"
+          onClick={handleToggle}
+          checked={visible}
+        />
         <span></span>
         <span></span>
         <span></span>
