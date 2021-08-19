@@ -1,4 +1,4 @@
-import { Icon } from './MediaLinks';
+import { Icon } from "./MediaLinks";
 
 const Intro = () => {
   return (
@@ -35,70 +35,20 @@ const About = () => {
         <div className="about">
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live
-              on the internet. My interest in web development started back in
-              2012 when I decided to try editing custom Tumblr themes — turns
-              out hacking together a custom reblog button taught me a lot about
-              HTML &amp; CSS!
-            </p>
-            <p>
-              Fast-forward to today, and I've had the privilege of working at{' '}
-              <a
-                className="link"
-                href="https://us.mullenlowe.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                an advertising agency
-              </a>
-              ,{' '}
-              <a
-                className="link"
-                href="https://starry.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                a start-up
-              </a>
-              ,{' '}
-              <a
-                className="link"
-                href="https://www.apple.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                a huge corporation
-              </a>
-              , and{' '}
-              <a
-                className="link"
-                href="https://scout.camd.northeastern.edu/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                a student-led design studio
-              </a>
-              . My main focus these days is building accessible, inclusive
-              products and digital experiences at{' '}
-              <a
-                className="link"
-                href="https://upstatement.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Upstatement
-              </a>{' '}
-              for a variety of clients.
+              Hey there! My name is Cody and I enjoy creating things that live
+              on the internet. I'm a recent Computer Science graduate from the
+              University of North Texas with lots of hands-on experience
+              building full-stack web applications.
             </p>
             <p>Here are a few technologies I've been working with recently:</p>
           </div>
           <ul className="skills-list">
-            <li>JavaScript (ES6+)</li>
             <li>React</li>
-            <li>Eleventy</li>
-            <li>Vue</li>
+            <li>JavaScript (ES6+)</li>
+            <li>TypeScript</li>
+            <li>SASS</li>
             <li>Node.js</li>
-            <li>WordPress</li>
+            <li>Express</li>
           </ul>
         </div>
         <div className="about-img">
