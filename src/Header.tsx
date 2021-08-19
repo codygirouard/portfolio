@@ -25,6 +25,7 @@ const MobileNav = () => {
     const exitMobileNav = (event: MouseEvent) => {
       setVisible(false);
       content?.classList.remove('blur');
+      document.body.style.overflow = 'auto';
     };
 
     content?.addEventListener('click', exitMobileNav);

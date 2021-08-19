@@ -10,26 +10,16 @@ const Intro = () => {
         <h2>Cody Girouard.</h2>
       </div>
       <div>
-        <h3>I build things for the web.</h3>
+        <h3>I create things for the web.</h3>
       </div>
       <div>
         <p>
-          I'm a software engineer specializing in building (and occasionally
-          designing) exceptional digital experiences. Currently, I'm focused on
-          building accessible, human-centered products at{' '}
-          <a
-            className="link"
-            href="https://upstatement.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Upstatement
-          </a>
-          .
+          I'm a software engineer focused on creating and building exceptional
+          digital experiences.
         </p>
       </div>
       <div>
-        <a className="button" href="mailto:brittany.chiang@gmail.com">
+        <a className="button" href="mailto:girouardcodya@gmail.com">
           Get In Touch
         </a>
       </div>

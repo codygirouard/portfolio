@@ -87,7 +87,7 @@ header {
   background-color: rgba($black, 0.98);
   z-index: 20;
 
-  transition: top 300ms ease-in, box-shadow 300ms ease-in;
+  transition: top 350ms ease-in, box-shadow 350ms ease-in;
 
   &.sticky,
   &.hidden {
@@ -102,7 +102,7 @@ header.sticky {
 }
 
 header.hidden {
-  top: -105px;
+  top: -100px;
   box-shadow: none;
 }
 
@@ -256,7 +256,7 @@ header.hidden {
 
 @media only screen and (min-width: 769px) {
   #content {
-    padding-left: 7em;
+    padding-left: 6em;
     padding-right: 4em;
   }
 }
@@ -338,7 +338,7 @@ header.hidden {
   }
 
   h3 {
-    margin: 0.6em 0 1.9em 0;
+    margin: 0.1em 0 0.75em 0;
     color: $grey;
     line-height: 0.9;
     font-size: clamp(2.5rem, 7vw, 3.75rem);
