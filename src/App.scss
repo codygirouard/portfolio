@@ -1,12 +1,12 @@
 // import fonts
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap'); // font-family: 'Rubik', sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap'); // font-family: 'Fira Mono', monospace;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"); // font-family: 'Rubik', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap"); // font-family: 'Fira Mono', monospace;
 
 // variables
 
-$font-sans: 'Rubik', sans-serif;
-$font-mono: 'Fira Mono', monospace;
+$font-sans: "Rubik", sans-serif;
+$font-mono: "Fira Mono", monospace;
 
 $black: #151515;
 $light-black: #1f1f1f;
@@ -87,7 +87,7 @@ header {
   background-color: rgba($black, 0.98);
   z-index: 20;
 
-  transition: top 350ms ease-in, box-shadow 350ms ease-in;
+  transition: top 300ms ease-out, box-shadow 300ms ease-in;
 
   &.sticky,
   &.hidden {
@@ -267,7 +267,7 @@ header.hidden {
   color: $red;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: -3px;
@@ -295,7 +295,7 @@ header.hidden {
   border-radius: 5px;
 
   &::after {
-    content: '';
+    content: "";
     background-color: $button-fill;
     position: absolute;
     bottom: 0;
@@ -365,7 +365,7 @@ header.hidden {
   left: 1em;
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     background-color: $white;
     height: 100px;
