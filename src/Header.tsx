@@ -1,21 +1,21 @@
-import { useState } from "react";
-import Logo from "./Logo";
+import { useEffect, useState } from 'react';
+import Logo from './Logo';
 
 const MobileNav = () => {
   const [visible, setVisible] = useState(false);
   const handleToggle = async () => {
-    const content = document.getElementById("content");
+    const content = document.getElementById('content');
     const body = document.body;
 
     if (visible) {
       // closing the mobile nav menu
-      body.style.overflow = "auto";
+      body.style.overflow = 'auto';
     } else {
       // opening the mobile nav menu
-      body.style.overflow = "hidden";
+      body.style.overflow = 'hidden';
     }
 
-    content?.classList.toggle("blur");
+    content?.classList.toggle('blur');
     setVisible(!visible);
   };
 
@@ -27,7 +27,7 @@ const MobileNav = () => {
         <span></span>
         <span></span>
       </label>
-      <aside className={visible ? undefined : "hidden"}>
+      <aside className={visible ? undefined : 'hidden'}>
         <nav>
           <ul>
             <li>
@@ -70,9 +70,38 @@ const Nav = () => {
   );
 };
 
+type HeaderClass = undefined | 'sticky' | 'hidden';
+
 const Header = () => {
+  const [display, setDisplay] = useState<HeaderClass>(undefined);
+
+  useEffect(() => {
+    let prevScrollTop: number = 0;
+
+    const handleScroll = () => {
+      const currentScrollTop = window.pageYOffset;
+
+      if (currentScrollTop < 15) {
+        setDisplay(undefined);
+      } else if (currentScrollTop > prevScrollTop) {
+        // scrolled down
+        setDisplay('hidden');
+      } else {
+        // scrolled up
+        setDisplay('sticky');
+      }
+      prevScrollTop = currentScrollTop;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header>
+    <header className={display}>
       <nav className="main-nav">
         <div className="logo">
           <a href="/">

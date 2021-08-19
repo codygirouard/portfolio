@@ -1,12 +1,12 @@
 // import fonts
 
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"); // font-family: 'Rubik', sans-serif;
-@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap"); // font-family: 'Fira Mono', monospace;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap'); // font-family: 'Rubik', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap'); // font-family: 'Fira Mono', monospace;
 
 // variables
 
-$font-sans: "Rubik", sans-serif;
-$font-mono: "Fira Mono", monospace;
+$font-sans: 'Rubik', sans-serif;
+$font-mono: 'Fira Mono', monospace;
 
 $black: #151515;
 $light-black: #1f1f1f;
@@ -18,6 +18,8 @@ $red: #ff2727;
 $light-red: #ff7070;
 
 $button-fill: rgba($red, 0.1);
+
+$shadow: rgba($dark-red, 0.5);
 
 $navy-shadow: rgba(2, 12, 27, 0.7);
 $green-tint: rgba(100, 255, 218, 0.1);
@@ -73,17 +75,35 @@ body {
 }
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   display: flex;
   padding: 0 1.5em;
-  height: 6.25em;
+  height: 100px;
   justify-content: space-between;
   align-items: center;
-  background-color: $grey;
+  background-color: rgba($black, 0.98);
   z-index: 20;
+
+  transition: top 300ms ease-in, box-shadow 300ms ease-in;
+
+  &.sticky,
+  &.hidden {
+    position: fixed;
+    height: 70px;
+  }
+}
+
+header.sticky {
+  top: 0px;
+  box-shadow: 0 0 20px 5px $shadow;
+}
+
+header.hidden {
+  top: -105px;
+  box-shadow: none;
 }
 
 .hamburger {
@@ -247,7 +267,7 @@ header {
   color: $red;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     bottom: -3px;
@@ -275,7 +295,7 @@ header {
   border-radius: 5px;
 
   &::after {
-    content: "";
+    content: '';
     background-color: $button-fill;
     position: absolute;
     bottom: 0;
@@ -345,7 +365,7 @@ header {
   left: 1em;
 
   &::after {
-    content: "";
+    content: '';
     display: block;
     background-color: $white;
     height: 100px;
