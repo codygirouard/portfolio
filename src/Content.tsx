@@ -1,5 +1,5 @@
-import { Icon } from './MediaLinks';
-import headshot from './images/headshot.jpg';
+import { Icon } from "./MediaLinks";
+import headshot from "./images/headshot.jpg";
 
 const Intro = () => {
   return (
@@ -40,14 +40,14 @@ const About = () => {
               on the internet. I'm a recent Computer Science graduate from the
               University of North Texas with lots of hands-on experience
               building full-stack web applications. Some notable projects I have
-              worked on as of today are{' '}
+              worked on as of today are{" "}
               <a className="link" href="https://www.dentonforums.com">
                 a community-driven social forum
-              </a>{' '}
-              using the MERN stack and{' '}
+              </a>{" "}
+              using the MERN stack and{" "}
               <a className="link" href="https://www.gmgwiki.coudei.me">
                 a university focused wiki
-              </a>{' '}
+              </a>{" "}
               using the LAMP stack.
             </p>
             <p>Here are a few technologies I've been working with recently:</p>
