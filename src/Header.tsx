@@ -41,7 +41,7 @@ const MobileNav = () => {
         <input
           type="checkbox"
           id="ham-button"
-          onClick={handleToggle}
+          onChange={handleToggle}
           checked={visible}
         />
         <span></span>
@@ -52,17 +52,25 @@ const MobileNav = () => {
         <nav>
           <ul>
             <li>
-              <a href="#about">About</a>
+              <a href="#about" onClick={handleToggle}>
+                About
+              </a>
             </li>
             <li>
-              <a href="#projects">Projects</a>
+              <a href="#projects" onClick={handleToggle}>
+                Projects
+              </a>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <a href="#contact" onClick={handleToggle}>
+                Contact
+              </a>
             </li>
           </ul>
           <div className="resume-button">
-            <a href="/resume.pdf">Resume</a>
+            <a className="button" href="/resume.pdf">
+              Resume
+            </a>
           </div>
         </nav>
       </aside>

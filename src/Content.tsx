@@ -1,4 +1,5 @@
-import { Icon } from "./MediaLinks";
+import { Icon } from './MediaLinks';
+import headshot from './images/headshot.jpg';
 
 const Intro = () => {
   return (
@@ -29,30 +30,39 @@ const Intro = () => {
 
 const About = () => {
   return (
-    <section>
+    <section className="about" id="about">
       <h2 className="title">About Me</h2>
-      <div className="body">
-        <div className="about">
+      <div>
+        <div>
           <div>
             <p>
               Hey there! My name is Cody and I enjoy creating things that live
               on the internet. I'm a recent Computer Science graduate from the
               University of North Texas with lots of hands-on experience
-              building full-stack web applications.
+              building full-stack web applications. Some notable projects I have
+              worked on as of today are{' '}
+              <a className="link" href="https://www.dentonforums.com">
+                a community-driven social forum
+              </a>{' '}
+              using the MERN stack and{' '}
+              <a className="link" href="https://www.gmgwiki.coudei.me">
+                a university focused wiki
+              </a>{' '}
+              using the LAMP stack.
             </p>
             <p>Here are a few technologies I've been working with recently:</p>
           </div>
           <ul className="skills-list">
             <li>React</li>
-            <li>JavaScript (ES6+)</li>
-            <li>TypeScript</li>
             <li>SASS</li>
+            <li>JavaScript (ES6+)</li>
             <li>Node.js</li>
+            <li>TypeScript</li>
             <li>Express</li>
           </ul>
         </div>
-        <div className="about-img">
-          <img alt="Headshot"></img>
+        <div className="about-img filter">
+          <img alt="Headshot" src={headshot}></img>
         </div>
       </div>
     </section>
