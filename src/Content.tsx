@@ -1,5 +1,6 @@
-import { Icon } from "./MediaLinks";
-import headshot from "./images/headshot.jpg";
+import { Icon } from './MediaLinks';
+import headshot from './images/headshot.jpg';
+import { useState } from 'react';
 
 const Intro = () => {
   return (
@@ -29,6 +30,46 @@ const Intro = () => {
 };
 
 const About = () => {
+  const [active, setActive] = useState('');
+
+  const rotate = () => {
+    setActive('rotate');
+  };
+
+  const getAngle = (element: HTMLSpanElement) => {
+    const matrix = window
+      .getComputedStyle(element)
+      .getPropertyValue('transform');
+
+    let matrixValues = matrix.split('(')[1];
+    matrixValues = matrixValues.split(')')[0];
+    const a = parseFloat(matrixValues.split(',')[0]);
+    const b = parseFloat(matrixValues.split(',')[1]);
+
+    return Math.round(Math.atan2(b, a) * (180 / Math.PI));
+  };
+
+  const stopRotate = () => {
+    const square1 = document.getElementById('square1');
+    const square2 = document.getElementById('square2');
+
+    if (!square1 || !square2) {
+      return;
+    }
+
+    const square1Angle = getAngle(square1);
+    const square2Angle = getAngle(square2);
+
+    square1.style.transform = `rotate(${square1Angle}deg)`;
+    square2.style.transform = `rotate(${square2Angle}deg)`;
+
+    requestAnimationFrame(() => {
+      square1.style.transform = 'rotate(22deg)';
+      square2.style.transform = 'rotate(67deg)';
+    });
+    setActive('');
+  };
+
   return (
     <section className="about" id="about">
       <h2 className="title">About Me</h2>
@@ -40,14 +81,14 @@ const About = () => {
               on the internet. I'm a recent Computer Science graduate from the
               University of North Texas with lots of hands-on experience
               building full-stack web applications. Some notable projects I have
-              worked on as of today are{" "}
+              worked on as of today are{' '}
               <a className="link" href="https://www.dentonforums.com">
                 a community-driven social forum
-              </a>{" "}
-              using the MERN stack and{" "}
+              </a>{' '}
+              using the MERN stack and{' '}
               <a className="link" href="https://www.gmgwiki.coudei.me">
                 a university focused wiki
-              </a>{" "}
+              </a>{' '}
               using the LAMP stack.
             </p>
             <p>Here are a few technologies I've been working with recently:</p>
@@ -61,8 +102,14 @@ const About = () => {
             <li>Express</li>
           </ul>
         </div>
-        <div className="about-img filter">
+        <div
+          className="about-img filter"
+          onMouseEnter={rotate}
+          onMouseLeave={stopRotate}
+        >
           <img alt="Headshot" src={headshot}></img>
+          <span className={`square ${active}`} id="square1"></span>
+          <span className={`square ${active}`} id="square2"></span>
         </div>
       </div>
     </section>
