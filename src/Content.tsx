@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const Intro = () => {
   return (
-    <section className="intro">
+    <section className='intro'>
       <div>
         <h1>Hi, my name is</h1>
       </div>
@@ -23,7 +23,7 @@ const Intro = () => {
         </p>
       </div>
       <div>
-        <a className="button" href="mailto:girouardcodya@gmail.com">
+        <a className='button' href='mailto:girouardcodya@gmail.com'>
           Get In Touch
         </a>
       </div>
@@ -73,8 +73,8 @@ const About = () => {
   };
 
   return (
-    <section className="about" id="about">
-      <h2 className="title">About Me</h2>
+    <section className='about' id='about'>
+      <h2 className='title'>About Me</h2>
       <div>
         <div>
           <div>
@@ -84,18 +84,18 @@ const About = () => {
               University of North Texas with lots of hands-on experience
               building full-stack web applications. Some notable projects I have
               worked on as of today are{' '}
-              <a className="link" href="https://www.dentonforums.com">
+              <a className='link' href='https://www.dentonforums.com'>
                 a community-driven social forum
               </a>{' '}
               using the MERN stack and{' '}
-              <a className="link" href="https://www.gmgwiki.coudei.me">
+              <a className='link' href='https://www.gmgwiki.coudei.me'>
                 a university focused wiki
               </a>{' '}
               using the LAMP stack.
             </p>
             <p>Here are a few technologies I've been working with recently:</p>
           </div>
-          <ul className="skills-list">
+          <ul className='skills-list'>
             <li>React</li>
             <li>SASS</li>
             <li>JavaScript (ES6+)</li>
@@ -105,13 +105,13 @@ const About = () => {
           </ul>
         </div>
         <div
-          className="about-img filter"
+          className='about-img filter'
           onMouseEnter={rotate}
           onMouseLeave={stopRotate}
         >
-          <img alt="Headshot" src={headshot}></img>
-          <span className={`square ${active}`} id="square1"></span>
-          <span className={`square ${active}`} id="square2"></span>
+          <img alt='Headshot' src={headshot}></img>
+          <span className={`square ${active}`} id='square1'></span>
+          <span className={`square ${active}`} id='square2'></span>
         </div>
       </div>
     </section>
@@ -148,29 +148,33 @@ const Project = ({
   };
 
   return (
-    <li onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-      <div className="project-content">
-        <h3 className="project-title">
+    <li
+      className='project'
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <div className='project-content'>
+        <h3 className='project-title'>
           <a href={link}>{title}</a>
         </h3>
-        <div className="project-description">
+        <div className='project-description'>
           <p>{description}</p>
         </div>
-        <ul className="project-tech-list">
+        <ul className='project-tech-list'>
           {techList.map((tech) => {
             return <li>{tech}</li>;
           })}
         </ul>
-        <div className="project-links">
+        <div className='project-links'>
           <a href={github}>
-            <Icon icon="github" />
+            <Icon icon='github' />
           </a>
           <a href={link}>
-            <Icon icon="external" />
+            <Icon icon='external' />
           </a>
         </div>
       </div>
-      <div className="project-image">
+      <div className='project-image'>
         <img alt={title} src={playGif ? gif : jpg}></img>
       </div>
     </li>
@@ -179,15 +183,15 @@ const Project = ({
 
 const Projects = () => {
   return (
-    <section className="projects">
-      <h2 className="title">Some Things I've Built</h2>
+    <section className='projects'>
+      <h2 className='title'>Some Things I've Built</h2>
       <ul>
         <Project
-          title="Denton Forums"
-          link="https://www.dentonforums.com"
-          description="Social Board"
+          title='Denton Forums'
+          link='https://www.dentonforums.com'
+          description='A nicer look at your GitHub profile and repository stats with data visualizations of your top languages and stars. Sort through your top repos by number of stars, forks, and size.'
           techList={['MongoDB', 'Express', 'React', 'Node']}
-          github="https://github.com/codygirouard/Forums"
+          github='https://github.com/codygirouard/Forums'
           jpg={dentonforumsJpg}
           gif={dentonforumsGif}
         />
@@ -198,7 +202,7 @@ const Projects = () => {
 
 const Contact = () => {
   return (
-    <section className="contact">
+    <section className='contact'>
       <h1>What's Next?</h1>
       <h2>Get In Touch</h2>
       <p>
@@ -206,7 +210,7 @@ const Contact = () => {
         is always open. Whether you have a question or just want to say hi, I'll
         try my best to get back to you!
       </p>
-      <a href="mailto:girouardcodya@gmail.com" className="button">
+      <a href='mailto:girouardcodya@gmail.com' className='button'>
         Say Hello
       </a>
     </section>
@@ -215,7 +219,7 @@ const Contact = () => {
 
 const Content = () => {
   return (
-    <main id="content">
+    <main id='content'>
       <Intro />
       <About />
       <Projects />

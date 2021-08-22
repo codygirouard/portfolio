@@ -514,6 +514,18 @@ header.hidden {
   }
 }
 
+.project {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1em;
+}
+
+.project-content {
+  padding: 25px;
+  grid-column: 1 / -1;
+}
+
 .project-title a {
   text-decoration: none;
   color: $white;
@@ -574,10 +586,6 @@ header.hidden {
     height: 100%;
     width: 100%;
   }
-}
-
-.projects li {
-  position: relative;
 }
 
 // side media links
