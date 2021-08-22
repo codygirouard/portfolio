@@ -1,7 +1,8 @@
 import { Icon } from './MediaLinks';
 import headshot from './images/headshot.jpg';
+import dentonforumsJpg from './images/dentonforums.jpg';
+import dentonforumsGif from './images/dentonforums.gif';
 import { useState } from 'react';
-import { getAngle } from './math';
 
 const Intro = () => {
   return (
@@ -32,6 +33,19 @@ const Intro = () => {
 
 const About = () => {
   const [active, setActive] = useState('');
+
+  const getAngle = (element: HTMLSpanElement) => {
+    const matrix = window
+      .getComputedStyle(element)
+      .getPropertyValue('transform');
+
+    let matrixValues = matrix.split('(')[1];
+    matrixValues = matrixValues.split(')')[0];
+    const a = parseFloat(matrixValues.split(',')[0]);
+    const b = parseFloat(matrixValues.split(',')[1]);
+
+    return Math.round(Math.atan2(b, a) * (180 / Math.PI));
+  };
 
   const rotate = () => {
     setActive('rotate');
@@ -104,40 +118,79 @@ const About = () => {
   );
 };
 
+type ProjectProps = {
+  title: string;
+  link: string;
+  description: string;
+  techList: string[];
+  github: string;
+  jpg: string;
+  gif: string;
+};
+
+const Project = ({
+  title,
+  link,
+  description,
+  techList,
+  github,
+  jpg,
+  gif,
+}: ProjectProps) => {
+  const [playGif, setPlayGif] = useState(false);
+
+  const handleEnter = () => {
+    setPlayGif(true);
+  };
+
+  const handleLeave = () => {
+    setPlayGif(false);
+  };
+
+  return (
+    <li onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+      <div className="project-content">
+        <h3 className="project-title">
+          <a href={link}>{title}</a>
+        </h3>
+        <div className="project-description">
+          <p>{description}</p>
+        </div>
+        <ul className="project-tech-list">
+          {techList.map((tech) => {
+            return <li>{tech}</li>;
+          })}
+        </ul>
+        <div className="project-links">
+          <a href={github}>
+            <Icon icon="github" />
+          </a>
+          <a href={link}>
+            <Icon icon="external" />
+          </a>
+        </div>
+      </div>
+      <div className="project-image">
+        <img alt={title} src={playGif ? gif : jpg}></img>
+      </div>
+    </li>
+  );
+};
+
 const Projects = () => {
   return (
-    <section>
-      <h2>Some Things I've Built</h2>
+    <section className="projects">
+      <h2 className="title">Some Things I've Built</h2>
       <ul>
-        <li>
-          <div className="project-content">
-            <p>Featured Project</p>
-            <h3>
-              <a href="#!">Denton Forums</a>
-            </h3>
-            <div className="project-description">
-              <p>
-                A nicer look at your GitHub profile and repository stats with
-                data visualizations of your top languages and stars. Sort
-                through your top repos by number of stars, forks, and size.
-              </p>
-            </div>
-            <ul className="project-tech-list">
-              <li>Next.js</li>
-              <li>Chart.js</li>
-              <li>GitHub API</li>
-            </ul>
-            <div className="project-links">
-              <a href="#!">
-                <Icon icon="github" />
-              </a>
-              <a href="#!">
-                <Icon icon="external" />
-              </a>
-            </div>
-          </div>
-          <div className="project-image"></div>
-        </li>
+        <Project
+          title="Denton Forums"
+          link="https://www.dentonforums.com"
+          description="Social Board"
+          techList={['MongoDB', 'Express', 'React', 'Node']}
+          github="https://github.com/codygirouard/Forums"
+          jpg={dentonforumsJpg}
+          gif={dentonforumsGif}
+        />
       </ul>
     </section>
   );
