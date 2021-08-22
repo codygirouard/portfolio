@@ -1,6 +1,7 @@
 import { Icon } from './MediaLinks';
 import headshot from './images/headshot.jpg';
 import { useState } from 'react';
+import { getAngle } from './math';
 
 const Intro = () => {
   return (
@@ -34,19 +35,6 @@ const About = () => {
 
   const rotate = () => {
     setActive('rotate');
-  };
-
-  const getAngle = (element: HTMLSpanElement) => {
-    const matrix = window
-      .getComputedStyle(element)
-      .getPropertyValue('transform');
-
-    let matrixValues = matrix.split('(')[1];
-    matrixValues = matrixValues.split(')')[0];
-    const a = parseFloat(matrixValues.split(',')[0]);
-    const b = parseFloat(matrixValues.split(',')[1]);
-
-    return Math.round(Math.atan2(b, a) * (180 / Math.PI));
   };
 
   const stopRotate = () => {
@@ -155,12 +143,30 @@ const Projects = () => {
   );
 };
 
+const Contact = () => {
+  return (
+    <section className="contact">
+      <h1>What's Next?</h1>
+      <h2>Get In Touch</h2>
+      <p>
+        Although I'm not currently looking for any new opportunities, my inbox
+        is always open. Whether you have a question or just want to say hi, I'll
+        try my best to get back to you!
+      </p>
+      <a href="mailto:girouardcodya@gmail.com" className="button">
+        Say Hello
+      </a>
+    </section>
+  );
+};
+
 const Content = () => {
   return (
     <main id="content">
       <Intro />
       <About />
       <Projects />
+      <Contact />
     </main>
   );
 };

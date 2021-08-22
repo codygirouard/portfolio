@@ -460,7 +460,6 @@ header.hidden {
   #square1 {
     transform: rotate(22deg);
     border: 4px solid $red;
-    background-color: rgba($light-black, 1);
 
     &.rotate {
       animation: square1 5s linear 0s infinite normal;
