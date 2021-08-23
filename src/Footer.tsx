@@ -10,6 +10,7 @@ const Footer = () => {
         aria-label="Brittany Chiang Website"
         target="_blank"
         rel="noreferrer"
+        className="link"
       >
         Design inspired by Brittany Chiang
       </a>

@@ -93,7 +93,9 @@ const Nav = () => {
         </li>
       </ul>
       <div className="resume-button">
-        <a href="/resume.pdf">Resume</a>
+        <a className="button" href="/resume.pdf">
+          Resume
+        </a>
       </div>
     </div>
   );
