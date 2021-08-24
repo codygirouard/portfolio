@@ -197,7 +197,7 @@ const Projects = () => {
           link="https://www.dentonforums.com"
           description="A forum web application for connecting with local Denton residents. Create 
           an account, start and contribute to discussions, and upvote posts that you enjoy."
-          techList={['MongoDB', 'Express', 'React', 'Node.js']}
+          techList={['MongoDB', 'Express', 'React', 'Node.js', 'Heroku']}
           github="https://github.com/codygirouard/Forums"
           jpg={dentonforumsJpg}
           gif={dentonforumsGif}
@@ -225,7 +225,7 @@ const Projects = () => {
           title="Portfolio"
           link="https://www.codygirouard.codes"
           description="A website portfolio that displays everything me! View my accomplishments, resume, and get in contact with me here."
-          techList={['React', 'TypeScript', 'SASS', 'Node']}
+          techList={['React', 'TypeScript', 'SASS', 'Node', 'Netlify']}
           github="https://github.com/codygirouard/portfolio"
           jpg={portfolioJpg}
           gif={portfolioGif}
