@@ -63,6 +63,12 @@ img {
   }
 }
 
+@media only screen and (min-width: 769px) {
+  body {
+    overflow: auto !important;
+  }
+}
+
 // logo
 
 #logo {
@@ -296,10 +302,6 @@ header.hidden {
   margin: 0 auto;
   padding: 0 2em;
   transition: filter 300ms ease-in-out;
-
-  &.blur {
-    filter: blur(5px);
-  }
 }
 
 @media only screen and (min-width: 480px) {
@@ -312,6 +314,12 @@ header.hidden {
   #content {
     padding-left: 6em;
     padding-right: 4em;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .blur {
+    filter: blur(5px);
   }
 }
 
