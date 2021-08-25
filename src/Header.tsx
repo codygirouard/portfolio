@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Logo from './Logo';
+import pdf from './documents/Resume.pdf';
 
 const MobileNav = () => {
   const [visible, setVisible] = useState(false);
@@ -68,7 +69,7 @@ const MobileNav = () => {
             </li>
           </ul>
           <div className="resume-button">
-            <a className="button" href="/resume.pdf">
+            <a className="button" href={pdf}>
               Resume
             </a>
           </div>
@@ -93,7 +94,7 @@ const Nav = () => {
         </li>
       </ul>
       <div className="resume-button">
-        <a className="button" href="/resume.pdf">
+        <a className="button" href={pdf}>
           Resume
         </a>
       </div>

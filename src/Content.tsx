@@ -81,20 +81,20 @@ const About = () => {
     <section className="about" id="about">
       <h2 className="title">About Me</h2>
       <div>
-        <div>
+        <div className="about-content">
           <div>
             <p>
-              Hey there! My name is Cody and I enjoy creating things that live
+              Hey there! My name is Cody, and I enjoy creating things that live
               on the internet. I'm a recent Computer Science graduate from the
               University of North Texas with lots of hands-on experience
               building full-stack web applications. Some notable projects I have
-              worked on as of today are{' '}
+              worked on so far are{' '}
               <a className="link" href="https://www.dentonforums.com">
                 a community-driven social forum
               </a>{' '}
               using the MERN stack and{' '}
               <a className="link" href="https://www.gmgwiki.coudei.me">
-                a university focused wiki
+                a university-focused wiki
               </a>{' '}
               using the LAMP stack.
             </p>
@@ -109,14 +109,16 @@ const About = () => {
             <li>Express</li>
           </ul>
         </div>
-        <div
-          className="about-img filter"
-          onMouseEnter={rotate}
-          onMouseLeave={stopRotate}
-        >
-          <img alt="Headshot" src={headshot}></img>
-          <span className={`square ${active}`} id="square1"></span>
-          <span className={`square ${active}`} id="square2"></span>
+        <div className="square-container">
+          <div
+            className="about-img filter"
+            onMouseEnter={rotate}
+            onMouseLeave={stopRotate}
+          >
+            <img alt="Headshot" src={headshot}></img>
+            <span className={`square ${active}`} id="square1"></span>
+            <span className={`square ${active}`} id="square2"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -175,13 +177,16 @@ const Project = ({
           </a>
         </div>
       </div>
-      <div className="project-image">
-        <img
-          alt={title}
-          src={playGif ? gif : jpg}
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
-        ></img>
+      <div
+        className={`project-image ${
+          title === 'Portfolio' ? 'white-border' : undefined
+        }`}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+      >
+        <a href={link}>
+          <img alt={title} src={playGif ? gif : jpg}></img>
+        </a>
       </div>
     </li>
   );
@@ -195,8 +200,8 @@ const Projects = () => {
         <Project
           title="Denton Forums"
           link="https://www.dentonforums.com"
-          description="A forum web application for connecting with local Denton residents. Create 
-          an account, start and contribute to discussions, and upvote posts that you enjoy."
+          description="A forum web application that connects local Denton residents. Create an
+          account, upvote posts that you enjoy, and contribute to discussions!"
           techList={['MongoDB', 'Express', 'React', 'Node.js', 'Heroku']}
           github="https://github.com/codygirouard/Forums"
           jpg={dentonforumsJpg}
@@ -205,9 +210,10 @@ const Projects = () => {
         <Project
           title="Go Mean Green Wiki"
           link="https://www.gmgwiki.coudei.me"
-          description="A wiki that informs University of North Texas students what is offered to them. 
-          Users can create accounts, 'heart' and comment on their favorite buildings, view the most 
-          popular buildings, and look for buildings by alphabetical sort or search bar."
+          description="A wiki that informs students what the University of North
+          Texas offers to them. Users can create accounts and 'heart' and
+          comment on their favorite buildings. To promote exploration, students
+          can sort pages by popularity and search alphabetically or by keywords."
           techList={[
             'jQuery',
             'AJAX',
@@ -241,9 +247,10 @@ const Contact = () => {
       <h1>What's Next?</h1>
       <h2>Get In Touch</h2>
       <p>
-        I'm currently looking for new opportunities to be a Software Engineer
-        working on the web. I love working on the front-end, but have plenty of
-        expereince working on the front-end and back-end aspects of web
+        I'm a recent Graduate Software Engineer seeking Front-End or Full-Stack
+        roles, proficient with React, TypeScript, Node.js, Python, MongoDB
+        (NoSQL), and other technologies. I love working on the front end and
+        have two year's worth of experience working on full-stack web
         applications.
       </p>
       <a href="mailto:girouardcodya@gmail.com" className="button">
