@@ -137,7 +137,7 @@ const Header = () => {
       <nav className="main-nav">
         <div className="logo">
           <a href="/">
-            <Logo />
+            <Logo letter="C" />
           </a>
         </div>
         <MobileNav />

@@ -87,6 +87,45 @@ img {
   }
 }
 
+// loading screen
+
+.loading-screen {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh;
+  align-items: center;
+  justify-items: center;
+
+  &.fade #logo {
+    opacity: 0;
+    top: -500px;
+  }
+
+  #logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 125px;
+    width: 125px;
+    transition: opacity 500ms, top 1000ms;
+    transition-delay: 500ms;
+  }
+
+  polygon {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 13.5s cubic-bezier(0, 0.16, 0.83, 0.84) normal 1;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 // nav bar
 
 .logo {
@@ -312,7 +351,7 @@ header.hidden {
 
 @media only screen and (min-width: 769px) {
   #content {
-    padding-left: 6em;
+    padding-left: 8em;
     padding-right: 4em;
   }
 }
@@ -701,7 +740,7 @@ header.hidden {
       content: counter(project) ' ';
       color: $red;
       font-family: $font-mono;
-      font-size: 2rem;
+      font-size: 4rem;
     }
   }
 
@@ -817,7 +856,7 @@ header.hidden {
   flex-direction: column;
   position: fixed;
   bottom: 0;
-  left: 1em;
+  left: 2em;
 
   &::after {
     content: '';
@@ -835,7 +874,23 @@ header.hidden {
   list-style: none;
 
   li {
-    padding: 0.9em;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    margin: 1.5em 0;
+  }
+
+  a {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    transition: top 300ms;
+
+    &:hover {
+      top: -3px;
+    }
   }
 
   svg {
@@ -845,6 +900,11 @@ header.hidden {
     stroke: $white;
     stroke-width: 2;
     stroke-linecap: round;
+    transition: stroke 200ms;
+
+    &:hover {
+      stroke: $red;
+    }
   }
 }
 

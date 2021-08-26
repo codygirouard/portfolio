@@ -179,7 +179,7 @@ const Project = ({
       </div>
       <div
         className={`project-image ${
-          title === 'Portfolio' ? 'white-border' : undefined
+          title === 'Portfolio' ? 'white-border' : ''
         }`}
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}

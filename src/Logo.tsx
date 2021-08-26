@@ -1,4 +1,7 @@
-const Logo = () => {
+type LogoProps = {
+  letter: string;
+};
+const Logo = ({ letter }: LogoProps) => {
   return (
     <svg
       id="logo"
@@ -15,15 +18,17 @@ const Logo = () => {
           fontFamily="sans-serif"
           fontStyle="normal"
           fontWeight="normal"
+          textAnchor="middle"
           id="logo-text"
           y="66"
-          x="23"
+          x="42"
         >
-          C
+          {letter}
         </text>
         <polygon
           id="logo-shape"
           strokeWidth="4"
+          strokeLinecap="round"
           points="42,3 3,25 3,70 42,93 81,71 81,26 "
         ></polygon>
       </g>
