@@ -1,5 +1,6 @@
 import { Icon } from './MediaLinks';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import headshot from './images/headshot.jpg';
 import dentonforumsJpg from './images/dentonforums.jpg';
@@ -10,28 +11,40 @@ import portfolioJpg from './images/portfolio.jpg';
 import portfolioGif from './images/portfolio.gif';
 
 const Intro = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 500);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const one = <h1>Hi, my name is</h1>;
+  const two = <h2>Cody Girouard.</h2>;
+  const three = <h3>I create things for the web.</h3>;
+  const four = (
+    <p>
+      I'm a software engineer focused on creating and building exceptional
+      digital experiences.
+    </p>
+  );
+  const five = (
+    <a className="button" href="mailto:girouardcodya@gmail.com">
+      Get In Touch
+    </a>
+  );
+
+  const items = [one, two, three, four, five];
+
   return (
     <section className="intro">
-      <div>
-        <h1>Hi, my name is</h1>
-      </div>
-      <div>
-        <h2>Cody Girouard.</h2>
-      </div>
-      <div>
-        <h3>I create things for the web.</h3>
-      </div>
-      <div>
-        <p>
-          I'm a software engineer focused on creating and building exceptional
-          digital experiences.
-        </p>
-      </div>
-      <div>
-        <a className="button" href="mailto:girouardcodya@gmail.com">
-          Get In Touch
-        </a>
-      </div>
+      <TransitionGroup component={null}>
+        {isMounted &&
+          items.map((item, i) => (
+            <CSSTransition key={i} classNames="fadeup" timeout={500}>
+              <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+            </CSSTransition>
+          ))}
+      </TransitionGroup>
     </section>
   );
 };
