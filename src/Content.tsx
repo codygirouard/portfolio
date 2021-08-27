@@ -40,8 +40,8 @@ const Intro = () => {
       <TransitionGroup component={null}>
         {isMounted &&
           items.map((item, i) => (
-            <CSSTransition key={i} classNames="fadeup" timeout={500}>
-              <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+            <CSSTransition key={i} classNames="fadeup" timeout={1000}>
+              <div style={{ transitionDelay: `${i + 3}00ms` }}>{item}</div>
             </CSSTransition>
           ))}
       </TransitionGroup>
