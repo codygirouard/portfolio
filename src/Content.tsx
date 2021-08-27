@@ -28,7 +28,7 @@ const Intro = () => {
     </p>
   );
   const five = (
-    <a className="button" href="mailto:girouardcodya@gmail.com">
+    <a className='button' href='mailto:girouardcodya@gmail.com'>
       Get In Touch
     </a>
   );
@@ -36,11 +36,11 @@ const Intro = () => {
   const items = [one, two, three, four, five];
 
   return (
-    <section className="intro">
+    <section className='intro'>
       <TransitionGroup component={null}>
         {isMounted &&
           items.map((item, i) => (
-            <CSSTransition key={i} classNames="fadeup" timeout={1000}>
+            <CSSTransition key={i} classNames='fadeup' timeout={1000}>
               <div style={{ transitionDelay: `${i + 3}00ms` }}>{item}</div>
             </CSSTransition>
           ))}
@@ -91,10 +91,10 @@ const About = () => {
   };
 
   return (
-    <section className="about" id="about">
-      <h2 className="title">About Me</h2>
+    <section className='about' id='about'>
+      <h2 className='title'>About Me</h2>
       <div>
-        <div className="about-content">
+        <div className='about-content'>
           <div>
             <p>
               Hey there! My name is Cody, and I enjoy creating things that live
@@ -102,18 +102,18 @@ const About = () => {
               University of North Texas with lots of hands-on experience
               building full-stack web applications. Some notable projects I have
               worked on so far are{' '}
-              <a className="link" href="https://www.dentonforums.com">
+              <a className='link' href='https://www.dentonforums.com'>
                 a community-driven social forum
               </a>{' '}
               using the MERN stack and{' '}
-              <a className="link" href="https://www.gmgwiki.coudei.me">
+              <a className='link' href='https://www.gmgwiki.coudei.me'>
                 a university-focused wiki
               </a>{' '}
               using the LAMP stack.
             </p>
             <p>Here are a few technologies I've been working with recently:</p>
           </div>
-          <ul className="skills-list">
+          <ul className='skills-list'>
             <li>React</li>
             <li>SASS</li>
             <li>JavaScript (ES6+)</li>
@@ -122,15 +122,15 @@ const About = () => {
             <li>Express</li>
           </ul>
         </div>
-        <div className="square-container">
+        <div className='square-container'>
           <div
-            className="about-img filter"
+            className='about-img filter'
             onMouseEnter={rotate}
             onMouseLeave={stopRotate}
           >
-            <img alt="Headshot" src={headshot}></img>
-            <span className={`square ${active}`} id="square1"></span>
-            <span className={`square ${active}`} id="square2"></span>
+            <img alt='Headshot' src={headshot}></img>
+            <span className={`square ${active}`} id='square1'></span>
+            <span className={`square ${active}`} id='square2'></span>
           </div>
         </div>
       </div>
@@ -168,25 +168,25 @@ const Project = ({
   };
 
   return (
-    <li className="project">
-      <div className="project-content">
-        <h3 className="project-title">
+    <li className='project'>
+      <div className='project-content'>
+        <h3 className='project-title'>
           <a href={link}>{title}</a>
         </h3>
-        <div className="project-description">
+        <div className='project-description'>
           <p>{description}</p>
         </div>
-        <ul className="project-tech-list">
+        <ul className='project-tech-list'>
           {techList.map((tech, i) => {
             return <li key={`${tech}-${i}`}>{tech}</li>;
           })}
         </ul>
-        <div className="project-links">
+        <div className='project-links'>
           <a href={github}>
-            <Icon icon="github" />
+            <Icon icon='github' />
           </a>
           <a href={link}>
-            <Icon icon="external" />
+            <Icon icon='external' />
           </a>
         </div>
       </div>
@@ -207,22 +207,22 @@ const Project = ({
 
 const Projects = () => {
   return (
-    <section className="projects" id="projects">
-      <h2 className="title">Some Things I've Built</h2>
+    <section className='projects' id='projects'>
+      <h2 className='title'>Some Things I've Built</h2>
       <ul>
         <Project
-          title="Denton Forums"
-          link="https://www.dentonforums.com"
-          description="A forum web application that connects local Denton residents. Create an
-          account, upvote posts that you enjoy, and contribute to discussions!"
+          title='Denton Forums'
+          link='https://www.dentonforums.com'
+          description='A forum web application that connects local Denton residents. Create an
+          account, upvote posts that you enjoy, and contribute to discussions!'
           techList={['MongoDB', 'Express', 'React', 'Node.js', 'Heroku']}
-          github="https://github.com/codygirouard/Forums"
+          github='https://github.com/codygirouard/Forums'
           jpg={dentonforumsJpg}
           gif={dentonforumsGif}
         />
         <Project
-          title="Go Mean Green Wiki"
-          link="https://www.gmgwiki.coudei.me"
+          title='Go Mean Green Wiki'
+          link='https://www.gmgwiki.coudei.me'
           description="A wiki that informs students what the University of North
           Texas offers to them. Users can create accounts and 'heart' and
           comment on their favorite buildings. To promote exploration, students
@@ -236,16 +236,16 @@ const Projects = () => {
             'PHP',
             'SASS',
           ]}
-          github="https://github.com/codygirouard/gmgwiki"
+          github='https://github.com/codygirouard/gmgwiki'
           jpg={gmgwikiJpg}
           gif={gmgwikiGif}
         />
         <Project
-          title="Portfolio"
-          link="https://www.codygirouard.codes"
-          description="A website portfolio that displays everything me! View my accomplishments, resume, and get in contact with me here."
+          title='Portfolio'
+          link='https://www.codygirouard.codes'
+          description='A website portfolio that displays everything me! View my accomplishments, resume, and get in contact with me here.'
           techList={['React', 'TypeScript', 'SASS', 'Node', 'Netlify']}
-          github="https://github.com/codygirouard/portfolio"
+          github='https://github.com/codygirouard/portfolio'
           jpg={portfolioJpg}
           gif={portfolioGif}
         />
@@ -256,7 +256,7 @@ const Projects = () => {
 
 const Contact = () => {
   return (
-    <section className="contact" id="contact">
+    <section className='contact' id='contact'>
       <h1>What's Next?</h1>
       <h2>Get In Touch</h2>
       <p>
@@ -266,7 +266,7 @@ const Contact = () => {
         have two year's worth of experience working on full-stack web
         applications.
       </p>
-      <a href="mailto:girouardcodya@gmail.com" className="button">
+      <a href='mailto:girouardcodya@gmail.com' className='button'>
         Say Hello
       </a>
     </section>
@@ -275,7 +275,7 @@ const Contact = () => {
 
 const Content = () => {
   return (
-    <main id="content">
+    <main id='content'>
       <Intro />
       <About />
       <Projects />
