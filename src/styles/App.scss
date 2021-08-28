@@ -1,24 +1,5 @@
-// import fonts
-
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap'); // font-family: 'Rubik', sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400&display=swap'); // font-family: 'Fira Mono', monospace;
-
-// variables
-
-$font-sans: 'Rubik', sans-serif;
-$font-mono: 'Fira Mono', monospace;
-
-$black: #151515;
-$light-black: #1a1a1a;
-$grey: #b9b9b9;
-$white: #f5f5f5;
-
-$dark-red: #b80000;
-$red: #ff2727;
-
-$button-fill: rgba($red, 0.1);
-
-$shadow: rgba($dark-red, 0.5);
+@use 'constants' as c;
+@use 'Header.scss';
 
 // defaults
 
@@ -29,29 +10,20 @@ body {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: c.$black;
+  color: c.$grey;
+  line-height: 1.5;
+  font-family: c.$font-sans;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
   backface-visibility: hidden;
-}
-
-body {
-  background-color: $black;
-  color: $grey;
-  line-height: 1.5;
-  font-family: $font-sans;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-::selection {
-  background: $dark-red;
-  color: $white;
-}
-::-moz-selection {
-  background: $dark-red;
-  color: $white;
 }
 
 section {
@@ -83,6 +55,18 @@ img {
   }
 }
 
+// text selection
+
+::selection {
+  background: c.$dark-red;
+  color: c.$white;
+}
+
+::-moz-selection {
+  background: c.$dark-red;
+  color: c.$white;
+}
+
 // scrollbar
 
 /* width */
@@ -90,25 +74,25 @@ img {
   width: 5px;
 }
 
-/* Track */
+/* track */
 ::-webkit-scrollbar-track {
-  background: $black;
+  background: c.$black;
 }
 
-/* Handle */
+/* handle */
 ::-webkit-scrollbar-thumb {
-  background: $red;
+  background: c.$red;
 }
 
-/* Handle on hover */
+/* handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $dark-red;
+  background: c.$dark-red;
 }
 
 // logo
 
 #logo {
-  color: $red;
+  color: c.$red;
   height: 42px;
   width: 42px;
 
@@ -182,253 +166,6 @@ img {
   }
 }
 
-// nav bar
-
-.logo {
-  height: 42px;
-  width: 42px;
-
-  a {
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
-}
-
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  font-family: $font-mono;
-  font-size: 0.85rem;
-  font-weight: 400;
-  display: flex;
-  padding: 0 1.5em;
-  height: 100px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba($black, 0.98);
-  z-index: 20;
-
-  transition: top 300ms ease-out, box-shadow 300ms ease-in;
-
-  &.sticky,
-  &.hidden {
-    position: fixed;
-    height: 70px;
-  }
-
-  .button {
-    padding: 0.5em 1em;
-  }
-}
-
-header.sticky {
-  top: 0;
-  box-shadow: 0 0 20px 5px $shadow;
-}
-
-header.hidden {
-  top: -100px;
-  box-shadow: none;
-}
-
-.hamburger {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 50px;
-  cursor: pointer;
-  z-index: 15;
-
-  span {
-    background: $red;
-    height: 3px;
-    margin: 7px 0;
-    border-radius: 5px;
-    transition: 300ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
-
-    &:nth-of-type(1) {
-      width: 100%;
-    }
-
-    &:nth-of-type(2) {
-      width: 75%;
-    }
-
-    &:nth-of-type(3) {
-      width: 50%;
-    }
-  }
-}
-
-#ham-button {
-  display: none;
-
-  &:checked ~ span:nth-of-type(1) {
-    transform-origin: top;
-    transform: translate(0, 18px) rotatez(-45deg);
-  }
-
-  &:checked ~ span:nth-of-type(2) {
-    transform-origin: bottom;
-    width: 100%;
-    transform: rotatez(45deg);
-  }
-
-  &:checked ~ span:nth-of-type(3) {
-    transform-origin: bottom;
-    width: 0%;
-  }
-}
-
-.main-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  aside {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: calc(min(70vw, 400px));
-    z-index: 1;
-    transform: translateX(0vw);
-    transition: transform 300ms ease-in-out, visibility 300ms ease-in-out;
-
-    &.hidden {
-      visibility: hidden;
-      transform: translateX(100vw);
-    }
-  }
-}
-
-.mobile-nav aside nav {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: $light-black;
-  box-shadow: -5px 0 5px 2px $shadow;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    font-size: 1.5rem;
-
-    li {
-      list-style-type: none;
-      margin: 2em 0;
-
-      a {
-        display: block;
-        font-family: $font-mono;
-        text-decoration: none;
-        color: $grey;
-        transition: transform 200ms ease-in, color 200ms ease-in;
-        transform-origin: left;
-      }
-
-      a:hover,
-      a:focus {
-        color: $red;
-        transform: scale(1.3);
-      }
-    }
-  }
-
-  .resume-button {
-    margin-top: 20%;
-    font-size: 1.5rem;
-  }
-}
-
-.links {
-  display: none;
-  align-items: center;
-
-  ul li {
-    display: inline-block;
-    margin-right: 2em;
-
-    a {
-      color: $white;
-      text-decoration: none;
-      transition: color 200ms;
-
-      &:hover {
-        color: $red;
-      }
-    }
-  }
-
-  .resume-button {
-    margin-left: 0.75em;
-  }
-}
-
-.resume-button a {
-  text-decoration: none;
-}
-
-@media only screen and (min-width: 769px) {
-  header {
-    padding: 0 3em;
-  }
-
-  .mobile-nav {
-    display: none;
-  }
-
-  .logo {
-    transform: translateX(-75px);
-    animation: nav-animate 500ms linear 1 normal forwards;
-  }
-
-  .links {
-    display: flex;
-
-    @for $i from 1 through 3 {
-      li:nth-child(#{$i}n) {
-        animation-delay: #{$i * 100}ms;
-      }
-    }
-
-    li {
-      transform: translateX(400px);
-      animation: nav-animate 500ms linear 1 normal forwards;
-    }
-
-    .resume-button {
-      transform: translateX(400px);
-      animation: nav-animate 500ms linear 1 normal forwards;
-      animation-delay: 400ms;
-    }
-  }
-}
-
-.logo {
-  height: 42px;
-  width: 42px;
-
-  a {
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
-}
-
-@keyframes nav-animate {
-  100% {
-    transform: translateX(0);
-  }
-}
-
 // content
 
 #content {
@@ -473,7 +210,7 @@ header.hidden {
     width: 100%;
     height: 1px;
     margin-left: 0.5em;
-    background-color: rgba($grey, 0.25);
+    background-color: rgba(c.$grey, 0.25);
   }
 }
 
@@ -494,7 +231,7 @@ header.hidden {
 .link {
   position: relative;
   text-decoration: none;
-  color: $red;
+  color: c.$red;
   font-weight: 400;
   white-space: nowrap;
 
@@ -505,7 +242,7 @@ header.hidden {
     bottom: -3px;
     height: 2px;
     width: 100%;
-    background-color: $red;
+    background-color: c.$red;
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 300ms ease-in;
@@ -521,15 +258,15 @@ header.hidden {
   position: relative;
   display: inline-block;
   text-decoration: none;
-  color: $red;
+  color: c.$red;
   padding: 1em 2em;
-  border: 1px solid $red;
+  border: 1px solid c.$red;
   border-radius: 5px;
-  font-family: $font-mono;
+  font-family: c.$font-mono;
 
   &::after {
     content: '';
-    background-color: $button-fill;
+    background-color: c.$button-fill;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -557,10 +294,10 @@ header.hidden {
   padding-bottom: 10vh;
 
   h1 {
-    color: $red;
+    color: c.$red;
     margin: 0;
     margin-bottom: 0.25em;
-    font-family: $font-mono;
+    font-family: c.$font-mono;
     font-size: clamp(1rem, 5vw, 1.25rem);
     font-weight: 400;
   }
@@ -569,12 +306,12 @@ header.hidden {
     margin: 0;
     margin-left: -4px;
     font-size: clamp(2.5rem, 8vw, 4rem);
-    color: $white;
+    color: c.$white;
   }
 
   h3 {
     margin: 0.1em 0 0.75em 0;
-    color: $grey;
+    color: c.$grey;
     line-height: 0.9;
     font-size: clamp(2.5rem, 7vw, 3.75rem);
   }
@@ -582,7 +319,7 @@ header.hidden {
   p {
     margin: 0;
     max-width: 540px;
-    color: $grey;
+    color: c.$grey;
   }
 
   .button {
@@ -614,14 +351,14 @@ header.hidden {
       position: relative;
       margin-bottom: 10px;
       padding-left: 35px;
-      font-family: $font-mono;
+      font-family: c.$font-mono;
       font-size: 0.75rem;
 
       &::before {
         content: '▹';
         position: absolute;
         left: 0;
-        color: $red;
+        color: c.$red;
         font-size: 2rem;
       }
     }
@@ -653,7 +390,7 @@ header.hidden {
 
   #square1 {
     transform: rotate(22deg);
-    border: 4px solid $red;
+    border: 4px solid c.$red;
 
     &.rotate {
       animation: square1 5s linear 0s infinite normal;
@@ -662,7 +399,7 @@ header.hidden {
 
   #square2 {
     transform: rotate(67deg);
-    border: 4px dotted $red;
+    border: 4px dotted c.$red;
 
     &.rotate {
       animation: square2 1.5s linear 0s infinite alternate;
@@ -737,7 +474,7 @@ header.hidden {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr 8fr 1fr;
   gap: 1em;
-  background-color: rgba($dark-red, 0.1);
+  background-color: rgba(c.$dark-red, 0.1);
 }
 
 .project-content {
@@ -751,12 +488,12 @@ header.hidden {
 
   a {
     text-decoration: none;
-    color: $white;
+    color: c.$white;
     font-size: clamp(1rem, 5vw, 1.25rem);
     transition: color 200ms;
 
     &:hover {
-      color: $red;
+      color: c.$red;
     }
   }
 }
@@ -774,9 +511,9 @@ header.hidden {
   li {
     margin-right: 0.75em;
     margin-bottom: 0.2em;
-    font-family: $font-mono;
+    font-family: c.$font-mono;
     font-size: 0.8rem;
-    color: $red;
+    color: c.$red;
   }
 }
 
@@ -793,14 +530,14 @@ header.hidden {
 
   svg {
     fill: none;
-    stroke: $grey;
+    stroke: c.$grey;
     height: 20px;
     width: 20px;
     stroke-width: 3;
     transition: stroke 200ms;
 
     &:hover {
-      stroke: $red;
+      stroke: c.$red;
     }
   }
 }
@@ -845,8 +582,8 @@ header.hidden {
     .project-title::before {
       counter-increment: project;
       content: counter(project) ' ';
-      color: $red;
-      font-family: $font-mono;
+      color: c.$red;
+      font-family: c.$font-mono;
       font-size: 4rem;
     }
   }
@@ -858,7 +595,7 @@ header.hidden {
   }
 
   .project-description {
-    background-color: $light-black;
+    background-color: c.$light-black;
     padding: 2em 1em;
     border-radius: 5px;
     margin: 1em 0;
@@ -940,9 +677,9 @@ header.hidden {
 
   h1 {
     font-size: 1rem;
-    font-family: $font-mono;
+    font-family: c.$font-mono;
     font-weight: 400;
-    color: $red;
+    color: c.$red;
     margin-bottom: 0;
   }
 
@@ -969,7 +706,7 @@ header.hidden {
   &::after {
     content: '';
     display: block;
-    background-color: $white;
+    background-color: c.$white;
     height: 100px;
     width: 2px;
     margin: 10px auto 0 auto;
@@ -1005,13 +742,13 @@ header.hidden {
     width: 20px;
     height: 20px;
     fill: none;
-    stroke: $white;
+    stroke: c.$white;
     stroke-width: 2;
     stroke-linecap: round;
     transition: stroke 200ms;
 
     &:hover {
-      stroke: $red;
+      stroke: c.$red;
     }
   }
 }
@@ -1038,7 +775,7 @@ footer {
   justify-content: center;
   align-items: center;
   margin-top: 4em;
-  font-family: $font-mono;
+  font-family: c.$font-mono;
   font-size: 0.8em;
   padding: 0 2em;
 
@@ -1064,7 +801,7 @@ footer {
   }
 
   svg:hover {
-    stroke: $red;
+    stroke: c.$red;
   }
 }
 

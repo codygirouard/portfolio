@@ -13,6 +13,7 @@ const MobileNav = () => {
     } else {
       // opening the mobile nav menu
       body.style.overflow = 'hidden';
+      document.documentElement.style.overflowX = 'visible';
     }
 
     content?.classList.toggle('blur');
@@ -36,11 +37,11 @@ const MobileNav = () => {
   }, []);
 
   return (
-    <div className="mobile-nav">
-      <label htmlFor="ham-button" className="hamburger">
+    <div className='mobile-nav'>
+      <label htmlFor='ham-button' className='hamburger'>
         <input
-          type="checkbox"
-          id="ham-button"
+          type='checkbox'
+          id='ham-button'
           onChange={handleToggle}
           checked={visible}
         />
@@ -52,23 +53,23 @@ const MobileNav = () => {
         <nav>
           <ul>
             <li>
-              <a href="#about" onClick={handleToggle}>
+              <a href='#about' onClick={handleToggle}>
                 About
               </a>
             </li>
             <li>
-              <a href="#projects" onClick={handleToggle}>
+              <a href='#projects' onClick={handleToggle}>
                 Projects
               </a>
             </li>
             <li>
-              <a href="#contact" onClick={handleToggle}>
+              <a href='#contact' onClick={handleToggle}>
                 Contact
               </a>
             </li>
           </ul>
-          <div className="resume-button">
-            <a className="button" href={pdf}>
+          <div className='resume-button'>
+            <a className='button' href={pdf}>
               Resume
             </a>
           </div>
