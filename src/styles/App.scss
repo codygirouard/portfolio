@@ -22,10 +22,18 @@ $shadow: rgba($dark-red, 0.5);
 
 // defaults
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+  backface-visibility: hidden;
 }
 
 body {
@@ -35,6 +43,15 @@ body {
   font-family: $font-sans;
   font-size: 1rem;
   font-weight: 400;
+}
+
+::selection {
+  background: $dark-red;
+  color: $white;
+}
+::-moz-selection {
+  background: $dark-red;
+  color: $white;
 }
 
 section {
@@ -138,9 +155,8 @@ img {
   polygon {
     stroke-dasharray: 1000;
     stroke-dashoffset: 999;
-    animation: draw 13.5s cubic-bezier(0, 0.16, 0.83, 0.84) normal 1;
+    animation: draw 3s linear 0s 1 normal forwards;
     animation-play-state: paused;
-    animation-fill-mode: forwards;
   }
 
   &.play {
@@ -152,11 +168,17 @@ img {
       visibility: visible;
     }
   }
+
+  &.pause {
+    polygon {
+      animation-play-state: paused;
+    }
+  }
 }
 
 @keyframes draw {
-  100% {
-    stroke-dashoffset: 0;
+  to {
+    stroke-dashoffset: 700;
   }
 }
 
@@ -365,13 +387,28 @@ header.hidden {
 
   .logo {
     transform: translateX(-75px);
-    animation: logoRight 500ms linear 1 normal forwards;
+    animation: nav-animate 500ms linear 1 normal forwards;
   }
 
   .links {
     display: flex;
-    transform: translateX(400px);
-    animation: linksLeft 500ms linear 1 normal forwards;
+
+    @for $i from 1 through 3 {
+      li:nth-child(#{$i}n) {
+        animation-delay: #{$i * 100}ms;
+      }
+    }
+
+    li {
+      transform: translateX(400px);
+      animation: nav-animate 500ms linear 1 normal forwards;
+    }
+
+    .resume-button {
+      transform: translateX(400px);
+      animation: nav-animate 500ms linear 1 normal forwards;
+      animation-delay: 400ms;
+    }
   }
 }
 
@@ -386,13 +423,7 @@ header.hidden {
   }
 }
 
-@keyframes logoRight {
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes linksLeft {
+@keyframes nav-animate {
   100% {
     transform: translateX(0);
   }
@@ -466,7 +497,6 @@ header.hidden {
   color: $red;
   font-weight: 400;
   white-space: nowrap;
-  backface-visibility: hidden;
 
   &::after {
     content: '';
@@ -539,6 +569,7 @@ header.hidden {
     margin: 0;
     margin-left: -4px;
     font-size: clamp(2.5rem, 8vw, 4rem);
+    color: $white;
   }
 
   h3 {
@@ -562,6 +593,8 @@ header.hidden {
 /* about section */
 
 .about {
+  scroll-margin-top: 2em;
+
   > div {
     display: flex;
     flex-direction: column;
@@ -590,7 +623,6 @@ header.hidden {
         left: 0;
         color: $red;
         font-size: 2rem;
-        backface-visibility: hidden;
       }
     }
   }
@@ -662,6 +694,11 @@ header.hidden {
 }
 
 @media only screen and (min-width: 769px) {
+  .about {
+    padding-top: 0;
+    scroll-margin-top: 6em;
+  }
+
   .about > div {
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -681,6 +718,8 @@ header.hidden {
 /* project section */
 
 .projects {
+  scroll-margin-top: 2em;
+
   ul {
     list-style: none;
     padding: 0;
@@ -738,7 +777,6 @@ header.hidden {
     font-family: $font-mono;
     font-size: 0.8rem;
     color: $red;
-    backface-visibility: hidden;
   }
 }
 
@@ -798,6 +836,7 @@ header.hidden {
 @media only screen and (min-width: 769px) {
   .projects {
     counter-reset: project;
+    scroll-margin-top: 4em;
   }
 
   .project {
@@ -897,6 +936,7 @@ header.hidden {
 
 .contact {
   text-align: center;
+  scroll-margin-top: 2em;
 
   h1 {
     font-size: 1rem;
@@ -1055,4 +1095,57 @@ footer {
   opacity: 1;
   transform: translateY(0px);
   transition: opacity 300ms, transform 300ms;
+}
+
+// section transitions
+
+.about,
+.projects {
+  &.fadein {
+    opacity: 0;
+  }
+
+  &.fadein-enter {
+    transform: translateY(300px);
+
+    &.fadein-active {
+      opacity: 1;
+      transform: translateY(0px);
+      transition: opacity 500ms, transform 500ms;
+      transition-delay: 200ms;
+    }
+  }
+}
+
+.project {
+  &.slidein {
+    opacity: 0;
+  }
+
+  &.slidein-enter {
+    transform: translateX(-400px);
+
+    &:nth-child(even) {
+      transform: translateX(400px);
+    }
+
+    &.slidein-active {
+      opacity: 1;
+      transform: translateX(0px);
+      transition: opacity 500ms, transform 500ms;
+    }
+  }
+}
+
+.contact {
+  &.fadezoom {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  &.fadezoom-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 500ms, transform 500ms;
+  }
 }

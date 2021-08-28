@@ -1,4 +1,4 @@
-import { MediaLinks } from './MediaLinks';
+import { MediaLinks } from './icons/MediaLinks';
 
 const Footer = () => {
   return (

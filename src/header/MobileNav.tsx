@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import Logo from './Logo';
-import pdf from './documents/Resume.pdf';
+import pdf from '../documents/Resume.pdf';
 
 const MobileNav = () => {
   const [visible, setVisible] = useState(false);
@@ -79,72 +78,4 @@ const MobileNav = () => {
   );
 };
 
-const Nav = () => {
-  return (
-    <div className="links">
-      <ul>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#projects">Projects</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-      </ul>
-      <div className="resume-button">
-        <a className="button" href={pdf}>
-          Resume
-        </a>
-      </div>
-    </div>
-  );
-};
-
-type HeaderClass = undefined | 'sticky' | 'hidden';
-
-const Header = () => {
-  const [display, setDisplay] = useState<HeaderClass>(undefined);
-
-  useEffect(() => {
-    let prevScrollTop: number = 0;
-
-    const handleScroll = () => {
-      const currentScrollTop = window.pageYOffset;
-
-      if (currentScrollTop < 15) {
-        setDisplay(undefined);
-      } else if (currentScrollTop > prevScrollTop) {
-        // scrolled down
-        setDisplay('hidden');
-      } else {
-        // scrolled up
-        setDisplay('sticky');
-      }
-      prevScrollTop = currentScrollTop;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  return (
-    <header className={display}>
-      <nav className="main-nav">
-        <div className="logo">
-          <a href="/">
-            <Logo letter="C" />
-          </a>
-        </div>
-        <MobileNav />
-        <Nav />
-      </nav>
-    </header>
-  );
-};
-
-export default Header;
+export default MobileNav;
