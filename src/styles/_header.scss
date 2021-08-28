@@ -228,17 +228,6 @@ header {
   }
 }
 
-.logo {
-  height: 42px;
-  width: 42px;
-
-  a {
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
-}
-
 @keyframes nav-animate {
   100% {
     transform: translateX(0);
