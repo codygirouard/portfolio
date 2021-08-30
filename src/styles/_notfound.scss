@@ -1,0 +1,31 @@
+@use 'constants' as c;
+
+.not-found {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+
+  h1 {
+    color: c.$red;
+    font-family: c.$font-mono;
+    font-size: clamp(3rem, 40vw, 6rem);
+    margin: 0;
+    line-height: 0.9;
+  }
+
+  h2 {
+    font-size: clamp(1rem, 10vw, 2rem);
+    margin: 0;
+  }
+
+  a {
+    background-color: transparent;
+    font-size: 1rem;
+    margin: 1.5em;
+    cursor: pointer;
+  }
+}

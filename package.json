@@ -44,9 +44,14 @@
     ]
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.9",
     "@types/jest": "^27.0.1",
     "@types/react-router-dom": "^5.1.8",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
     "prettier": "^2.3.2",
+    "react-test-renderer": "^16.13.1",
     "sass": "^1.38.2"
   }
 }
