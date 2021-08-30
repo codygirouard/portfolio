@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from '../icons/MediaLinks';
-import { isScrolledIntoView } from '../styleInfo';
+import elementAppear from '../EnterStyles';
 
 type ProjectProps = {
   title: string;
@@ -33,15 +33,7 @@ const Project = ({
   };
 
   const handleScroll = () => {
-    const project = projectRef.current;
-
-    if (isScrolledIntoView(project)) {
-      window.removeEventListener('scroll', handleScroll);
-      project?.classList.add('slidein-enter');
-      setTimeout(() => {
-        project?.classList.add('slidein-active');
-      }, 50);
-    }
+    elementAppear(projectRef, 'slidein', handleScroll);
   };
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { isScrolledIntoView, getAngle } from '../styleInfo';
+import { getAngle } from '../styleInfo';
+import elementAppear from '../EnterStyles';
 
 import headshot from '../images/headshot.jpg';
 
@@ -21,6 +22,8 @@ const About = () => {
       return;
     }
 
+    // using the current computed matrix/angle from the squares animation
+    // set css transform, and then transition back to the default angles
     const square1Angle = getAngle(square1);
     const square2Angle = getAngle(square2);
 
@@ -35,15 +38,7 @@ const About = () => {
   };
 
   const handleScroll = () => {
-    const aboutSection = aboutRef.current;
-
-    if (isScrolledIntoView(aboutSection)) {
-      window.removeEventListener('scroll', handleScroll);
-      aboutSection?.classList.add('fadein-enter');
-      setTimeout(() => {
-        aboutSection?.classList.add('fadein-active');
-      }, 50);
-    }
+    elementAppear(aboutRef, 'fadein', handleScroll);
   };
 
   useEffect(() => {

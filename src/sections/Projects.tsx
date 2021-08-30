@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { isScrolledIntoView } from '../styleInfo';
+import elementAppear from '../EnterStyles';
 import Project from './Project';
 
 import dentonforumsJpg from '../images/dentonforums.jpg';
@@ -13,15 +13,7 @@ const Projects = () => {
   const projectsRef = useRef<HTMLElement>(null);
 
   const handleScroll = () => {
-    const projectsSection = projectsRef.current;
-
-    if (isScrolledIntoView(projectsSection)) {
-      window.removeEventListener('scroll', handleScroll);
-      projectsSection?.classList.add('fadein-enter');
-      setTimeout(() => {
-        projectsSection?.classList.add('fadein-active');
-      }, 50);
-    }
+    elementAppear(projectsRef, 'fadein', handleScroll);
   };
 
   useEffect(() => {

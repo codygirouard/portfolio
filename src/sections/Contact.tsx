@@ -1,16 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { isScrolledIntoView } from '../styleInfo';
+import elementAppear from '../EnterStyles';
 
 const Contact = () => {
   const contactRef = useRef<HTMLElement>(null);
 
   const handleScroll = () => {
-    const contactSection = contactRef.current;
-
-    if (isScrolledIntoView(contactSection)) {
-      contactSection?.classList.add('fadezoom-active');
-      window.removeEventListener('scroll', handleScroll);
-    }
+    elementAppear(contactRef, 'fadezoom', handleScroll);
   };
 
   useEffect(() => {
