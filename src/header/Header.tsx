@@ -11,6 +11,7 @@ const Header = () => {
   useEffect(() => {
     let prevScrollTop: number = 0;
 
+    // hide the scrollbar on scrolldown
     const handleScroll = () => {
       const currentScrollTop = window.pageYOffset;
 
