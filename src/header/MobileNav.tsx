@@ -4,14 +4,14 @@ import pdf from '../documents/Resume.pdf';
 const MobileNav = () => {
   const [visible, setVisible] = useState(false);
 
+  // opens and closes the mobile nav menu
+  // prevent scrolling by setting the body overflow to hidden
   const handleToggle = () => {
     const content = document.getElementById('content');
     const body = document.body;
     if (visible) {
-      // closing the mobile nav menu
       body.style.overflow = 'auto';
     } else {
-      // opening the mobile nav menu
       body.style.overflow = 'hidden';
       document.documentElement.style.overflowX = 'visible';
     }
@@ -21,6 +21,7 @@ const MobileNav = () => {
   };
 
   useEffect(() => {
+    // exit the mobile nav whenever the page content is clicked (outside of the mobile nav)
     const content = document.getElementById('content');
 
     const exitMobileNav = (event: MouseEvent) => {
