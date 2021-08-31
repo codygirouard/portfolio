@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, shallow } from 'enzyme';
 
-import About from '../sections/About';
+import About from '../../sections/About';
 
 it('renders without crashing', () => {
   shallow(<About />);

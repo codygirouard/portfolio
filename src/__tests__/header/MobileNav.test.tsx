@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, shallow } from 'enzyme';
 
-import MobileNav from '../header/MobileNav';
+import MobileNav from '../../header/MobileNav';
 
 it('renders without crashing', () => {
   shallow(<MobileNav />);

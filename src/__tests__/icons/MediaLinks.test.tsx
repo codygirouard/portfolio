@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { mount, render, shallow } from 'enzyme';
 
-import { MediaLinks, Icon } from '../icons/MediaLinks';
+import { MediaLinks, Icon } from '../../icons/MediaLinks';
 
 describe('medialinks', () => {
   it('renders without crashing', () => {

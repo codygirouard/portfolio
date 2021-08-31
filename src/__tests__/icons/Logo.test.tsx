@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { mount, shallow } from 'enzyme';
 
-import Logo from '../icons/Logo';
+import Logo from '../../icons/Logo';
 
 it('renders without crashing', () => {
   shallow(<Logo letter="C" />);

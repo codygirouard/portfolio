@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom';
 import { render, shallow } from 'enzyme';
 
-import Header from '../header/Header';
-import MobileNav from '../header/MobileNav';
-import Nav from '../header/Nav';
+import Header from '../../header/Header';
+import MobileNav from '../../header/MobileNav';
+import Nav from '../../header/Nav';
 
 it('renders without crashing', () => {
   shallow(<Header />);
