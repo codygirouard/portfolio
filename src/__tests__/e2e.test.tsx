@@ -20,7 +20,7 @@ const clickLink = async (page: puppeteer.Page, innerText: string) => {
 describe('Portfolio E2E test', () => {
   let browser: puppeteer.Browser;
   let page: puppeteer.Page;
-  jest.setTimeout(10000);
+  jest.setTimeout(12000);
 
   beforeAll(async () => {
     browser = await puppeteer.launch();
