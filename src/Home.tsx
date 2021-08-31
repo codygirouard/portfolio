@@ -16,6 +16,8 @@ const Home = () => {
   );
 };
 
+export { Home };
+
 const HomePage = () => {
   const [isMounted, setMounted] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -34,8 +36,10 @@ const HomePage = () => {
 
     setTimeout(() => {
       if (char.charCodeAt(0) > 67) {
+        // char is somewhere between D and Z
         setChar(prevChar(char));
       } else {
+        // char === C, transition to homepage
         setTimeout(() => {
           setLoading(false);
         }, 1500);
@@ -82,9 +86,8 @@ const HomePage = () => {
     return (
       <div
         ref={divRef}
-        className={`loading-screen${char.charCodeAt(0) === 67 ? ' fade' : ''} ${
-          play ? 'play' : 'pause'
-        }`}
+        className={`loading-screen 
+        ${char.charCodeAt(0) === 67 ? ' fade' : ''} ${play ? 'play' : 'pause'}`}
       >
         <Logo letter={char} />
       </div>
