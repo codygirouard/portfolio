@@ -48,7 +48,9 @@ const Project = ({
     <li className="project slidein" ref={projectRef}>
       <div className="project-content">
         <h3 className="project-title">
-          <a href={link}>{title}</a>
+          <a href={link} title={`${title} (Made by Cody Girouard)`}>
+            {title}
+          </a>
         </h3>
         <div className="project-description">
           <p>{description}</p>
@@ -59,10 +61,10 @@ const Project = ({
           })}
         </ul>
         <div className="project-links">
-          <a href={github}>
+          <a href={github} title="Cody Girouard GitHub">
             <Icon icon="github" />
           </a>
-          <a href={link}>
+          <a href={link} title={`${title} (Made by Cody Girouard)`}>
             <Icon icon="external" />
           </a>
         </div>
@@ -74,7 +76,7 @@ const Project = ({
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
-        <a href={link}>
+        <a href={link} title={`${title} (Made by Cody Girouard)`}>
           <img
             alt={`${title} (Made by Cody Girouard)`}
             src={playGif ? gif : jpg}
