@@ -87,7 +87,7 @@ const About = () => {
             onMouseEnter={rotate}
             onMouseLeave={stopRotate}
           >
-            <img alt="Headshot" src={headshot}></img>
+            <img alt="Headshot of Cody Girouard" src={headshot}></img>
             <span
               className={`square ${active}`}
               id="square1"

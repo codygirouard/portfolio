@@ -33,5 +33,7 @@ it('renders React and TypeScript', () => {
 it('renders headshot image', () => {
   const wrapper = render(<About />);
 
-  expect(wrapper.html()).toContain('<img alt="Headshot" src="headshot.jpg">');
+  expect(wrapper.html()).toContain(
+    '<img alt="Headshot of Cody Girouard" src="headshot.jpg">'
+  );
 });

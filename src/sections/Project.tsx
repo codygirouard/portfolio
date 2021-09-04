@@ -75,7 +75,10 @@ const Project = ({
         onMouseLeave={handleLeave}
       >
         <a href={link}>
-          <img alt={title} src={playGif ? gif : jpg}></img>
+          <img
+            alt={`${title} (Made by Cody Girouard)`}
+            src={playGif ? gif : jpg}
+          ></img>
         </a>
       </div>
     </li>
